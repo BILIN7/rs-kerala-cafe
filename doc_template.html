@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>RS Kerala Cafe - Platform Specification & Client Walkthrough Guide</title>
+<title>RS Kerala Cafe - Production Architecture, Hosting & UK Bank Payments Guide</title>
 <style>
   @page {
     size: A4;
@@ -17,7 +17,7 @@
     color: #1e293b;
     background: #ffffff;
     line-height: 1.5;
-    font-size: 10.5pt;
+    font-size: 10pt;
     margin: 0;
     padding: 0;
   }
@@ -48,7 +48,7 @@
   }
 
   .cover h1 {
-    font-size: 30pt;
+    font-size: 28pt;
     font-weight: 900;
     color: #0f172a;
     line-height: 1.15;
@@ -60,9 +60,9 @@
   }
 
   .cover-subtitle {
-    font-size: 13pt;
+    font-size: 12.5pt;
     color: #475569;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     max-width: 620px;
     font-weight: 400;
   }
@@ -73,7 +73,7 @@
     border-radius: 8px;
     padding: 16px 20px;
     margin-top: 24px;
-    font-size: 10pt;
+    font-size: 9.5pt;
   }
 
   .meta-row {
@@ -100,13 +100,13 @@
 
   /* Headings */
   h2 {
-    font-size: 16pt;
+    font-size: 15pt;
     font-weight: 800;
     color: #0f172a;
     border-bottom: 2px solid #e2e8f0;
     padding-bottom: 6px;
-    margin-top: 28px;
-    margin-bottom: 14px;
+    margin-top: 26px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -115,17 +115,17 @@
   h2 span.num {
     background: #059669;
     color: #ffffff;
-    font-size: 10pt;
+    font-size: 9.5pt;
     padding: 2px 8px;
     border-radius: 6px;
     font-weight: 800;
   }
 
   h3 {
-    font-size: 12pt;
+    font-size: 11.5pt;
     font-weight: 700;
     color: #1e293b;
-    margin-top: 18px;
+    margin-top: 16px;
     margin-bottom: 8px;
   }
 
@@ -134,7 +134,7 @@
     margin-bottom: 10px;
   }
 
-  /* Point-based lists */
+  /* Lists */
   ul.feature-list {
     list-style: none;
     padding-left: 0;
@@ -143,9 +143,9 @@
 
   ul.feature-list > li {
     position: relative;
-    padding-left: 24px;
+    padding-left: 22px;
     margin-bottom: 8px;
-    font-size: 10pt;
+    font-size: 9.5pt;
   }
 
   ul.feature-list > li::before {
@@ -155,33 +155,11 @@
     top: 1px;
     color: #059669;
     font-weight: 900;
-    font-size: 10.5pt;
+    font-size: 10pt;
   }
 
   ul.feature-list > li strong {
     color: #0f172a;
-  }
-
-  /* Walkthrough Step Cards */
-  .step-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-  }
-
-  .step-card h4 {
-    margin: 0 0 4px 0;
-    color: #059669;
-    font-size: 10.5pt;
-    font-weight: 700;
-  }
-
-  .step-card p {
-    margin: 0;
-    font-size: 9.5pt;
-    color: #475569;
   }
 
   /* Callout Boxes */
@@ -189,13 +167,8 @@
     background: #f0fdf4;
     border: 1px solid #bbf7d0;
     border-radius: 10px;
-    padding: 14px 18px;
-    margin: 16px 0;
-  }
-
-  .callout-box.warn {
-    background: #fffbeb;
-    border-color: #fde68a;
+    padding: 12px 16px;
+    margin: 14px 0;
   }
 
   .callout-box.info {
@@ -204,18 +177,36 @@
   }
 
   .callout-box h4 {
-    margin: 0 0 6px 0;
-    font-size: 10.5pt;
+    margin: 0 0 4px 0;
+    font-size: 10pt;
     font-weight: 700;
     color: #065f46;
   }
 
-  .callout-box.warn h4 {
-    color: #92400e;
-  }
-
   .callout-box.info h4 {
     color: #1e40af;
+  }
+
+  /* Step Cards */
+  .step-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+  }
+
+  .step-card h4 {
+    margin: 0 0 3px 0;
+    color: #059669;
+    font-size: 10pt;
+    font-weight: 700;
+  }
+
+  .step-card p {
+    margin: 0;
+    font-size: 9pt;
+    color: #475569;
   }
 
   /* Tables */
@@ -223,11 +214,11 @@
     width: 100%;
     border-collapse: collapse;
     margin: 14px 0;
-    font-size: 9pt;
+    font-size: 8.5pt;
   }
 
   th, td {
-    padding: 8px 10px;
+    padding: 7px 10px;
     text-align: left;
     border-bottom: 1px solid #e2e8f0;
   }
@@ -237,60 +228,12 @@
     color: #334155;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 8pt;
+    font-size: 7.5pt;
     letter-spacing: 0.05em;
   }
 
   tr:nth-child(even) td {
     background: #f8fafc;
-  }
-
-  .badge {
-    display: inline-block;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 7.5pt;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  .badge.demo {
-    background: #fef3c7;
-    color: #92400e;
-    border: 1px solid #fde68a;
-  }
-
-  .badge.prod {
-    background: #dcfce7;
-    color: #166534;
-    border: 1px solid #bbf7d0;
-  }
-
-  /* Tech Grid */
-  .tech-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin: 14px 0;
-  }
-
-  .tech-item {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 10px 14px;
-  }
-
-  .tech-item strong {
-    display: block;
-    color: #0f172a;
-    font-size: 9.5pt;
-    margin-bottom: 2px;
-  }
-
-  .tech-item span {
-    font-size: 8.5pt;
-    color: #64748b;
   }
 
   .page-break {
@@ -304,251 +247,234 @@
 <!-- COVER PAGE                                                    -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <div class="cover">
-  <div class="cover-badge">Platform Overview & Client User Guide</div>
-  <h1>RS Kerala Café<br><span>Digital Ordering & Hotel Management Hub</span></h1>
+  <div class="cover-badge">Technical & Commercial Architecture Report</div>
+  <h1>RS Kerala Café<br><span>Production Hosting, Architecture & UK Bank Payments Guide</span></h1>
   <div class="cover-subtitle">
-    Step-by-step module walkthrough for clients, full technical architecture, cloud hosting infrastructure, demo vs. production differences, and future feature roadmap.
+    Comprehensive breakdown of real hosting costs, domain deployment, end-to-end order processing lifecycle, and UK business bank account payouts via Stripe.
   </div>
 
   <div class="meta-box">
     <div class="meta-row"><div class="meta-label">Live Storefront:</div><div class="meta-value"><a href="https://rs-kerala-cafe.netlify.app/">https://rs-kerala-cafe.netlify.app/</a></div></div>
     <div class="meta-row"><div class="meta-label">Backend Engine:</div><div class="meta-value"><a href="https://rs-kerala-cafe.onrender.com">https://rs-kerala-cafe.onrender.com</a></div></div>
-    <div class="meta-row"><div class="meta-label">Admin Management:</div><div class="meta-value">Route: <code>/admin</code> (or triple-click the logo) | ID: <code>rs707</code></div></div>
+    <div class="meta-row"><div class="meta-label">Admin Console:</div><div class="meta-value">Route: <code>/admin</code> (or triple-click the logo) | ID: <code>rs707</code></div></div>
     <div class="meta-row"><div class="meta-label">GitHub Repository:</div><div class="meta-value"><a href="https://github.com/BILIN7/rs-kerala-cafe">github.com/BILIN7/rs-kerala-cafe</a></div></div>
-    <div class="meta-row"><div class="meta-label">Document Version:</div><div class="meta-value">2.0 (Client Presentation Release)</div></div>
+    <div class="meta-row"><div class="meta-label">Target Market:</div><div class="meta-value">Greater Manchester & UK Hospitality</div></div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 1: HOW THE CLIENT CAN TEST THE SITE                    -->
+<!-- SECTION 1: COST BREAKDOWN                                      -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<h2><span class="num">01</span> Client Walkthrough Guide: Module by Module</h2>
+<h2><span class="num">01</span> Real Infrastructure Cost Breakdown</h2>
 <p>
-  This section guides the restaurant owner/client on how to test every feature of the live website step-by-step on phone or desktop:
-</p>
-
-<h3>A. Customer Storefront Walkthrough</h3>
-<div class="step-card">
-  <h4>Step 1: Explore the Brand & Authentic Kerala Menu</h4>
-  <p>Open <a href="https://rs-kerala-cafe.netlify.app/">https://rs-kerala-cafe.netlify.app/</a>. Browse the Kerala-inspired design with the custom logo. Click <strong>"Menu"</strong> to view categories (<em>Biriyani, Kerala Specialities, Dosa, Breads</em>). Click any dish image to open the high-resolution photo zoom preview.</p>
-</div>
-
-<div class="step-card">
-  <h4>Step 2: Add Items to the Smart Cart</h4>
-  <p>Click <strong>"+ Add"</strong> on items like <em>Malabar Chicken Dum Biriyani</em> and <em>Kerala Porotta</em>. The slide-out cart appears on the right, showing quantity counters, live item totals, and a progress bar toward <strong>Free UK Delivery</strong> (£35+ threshold).</p>
-</div>
-
-<div class="step-card">
-  <h4>Step 3: Test Address & UK Postcode Detection</h4>
-  <p>Proceed to Checkout. Toggle between <strong>Home Delivery</strong> and <strong>Counter Collection</strong>. For delivery, enter a UK postcode (e.g., <code>M22 4HH</code> or <code>M20 2BW</code>) or click <em>"Use My Current Location"</em> to extract your live GPS coordinates automatically.</p>
-</div>
-
-<div class="step-card">
-  <h4>Step 4: Experience the Payment Simulation</h4>
-  <p>Fill in a customer name and verified phone number (e.g., <code>07700 900123</code>). Click <strong>"Proceed to Payment"</strong>. The system reveals an interactive credit card graphic. Click <em>"Simulate Instant Demo Card Payment"</em> or choose <em>"Cash on Handover"</em>. Submit the order.</p>
-</div>
-
-<div class="step-card">
-  <h4>Step 5: View the 4-Digit Handover PIN & Live Tracker</h4>
-  <p>Instantly, the order confirmation screen displays your order number and a bold <strong>4-Digit Security PIN</strong> (e.g. <code>4821</code>). Click <strong>"Track Live Order"</strong> to watch the order progress step-by-step with courier calling capabilities.</p>
-</div>
-
-<h3>B. Hotel Admin Management Walkthrough</h3>
-<div class="step-card">
-  <h4>Step 1: Access the Secret Admin Gateway</h4>
-  <p>From any page, <strong>click the logo 3 times in rapid succession</strong> (or navigate to <code>/admin</code>). The system reveals the restricted Hotel Management login portal. Enter ID: <code>rs707</code> and Password: <code>robin@77</code>.</p>
-</div>
-
-<div class="step-card">
-  <h4>Step 2: Inspect Today's vs Previous Orders with Live Highlighting</h4>
-  <p>Notice the filter defaults to <strong>"⚡ Today's Orders"</strong>. Orders in progress have distinct glowing highlights: <em>🔥 Cooking in Kitchen</em> (amber), <em>🛵 Out for Delivery</em> (blue), and <em>⚡ New Incoming Order</em> (emerald). Click <em>"🕒 Previous Orders"</em> to view past orders.</p>
-</div>
-
-<div class="step-card">
-  <h4>Step 3: Accept Orders & Adjust Cooking Prep Times</h4>
-  <p>On any incoming order, select the cooking time (15, 20, 25, or 35 minutes) and click <strong>"Accept Order"</strong>. The countdown timer synchronizes in real-time with the customer's tracking screen without reloading.</p>
-</div>
-
-<div class="step-card">
-  <h4>Step 4: Assign a Courier & Copy WhatsApp Dispatch Docket</h4>
-  <p>Click <strong>"Assign Driver"</strong>. Enter courier name (e.g., Suresh Kumar), phone, and vehicle (Honda PCX 125 Scooter). Click <strong>"Copy Docket"</strong> to copy a formatted delivery docket (customer name, address, GPS coordinates, items, and direct Google Maps link) ready to paste into WhatsApp for the driver.</p>
-</div>
-
-<div class="step-card">
-  <h4>Step 5: Verify 4-Digit Handover PIN</h4>
-  <p>When the driver or customer arrives, click <strong>"Verify PIN"</strong>, enter the 4-digit code from the customer's phone, and the ticket is securely completed and archived.</p>
-</div>
-
-<div class="step-card">
-  <h4>Step 6: Live Menu Management (CRUD)</h4>
-  <p>Switch to the <strong>"Menu Management"</strong> tab in the header. Add new dishes, change prices, update descriptions, upload dish images, or toggle item availability with instantaneous updates across the customer menu.</p>
-</div>
-
-<div class="page-break"></div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 2: COMPLETE FEATURE BREAKDOWN (CUSTOMER & ADMIN)      -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2><span class="num">02</span> Point-Based Feature Breakdown</h2>
-
-<h3>🛍️ Customer Storefront Module</h3>
-<ul class="feature-list">
-  <li><strong>Bespoke Brand Identity:</strong> Handcrafted vector emblem incorporating the Kerala brass lamp flame (*Nilavilakku*), coconut palm frond, aromatic steam, and gold monogram.</li>
-  <li><strong>Authentic South Indian & Malabar Menu:</strong> Filter dishes by categories, real-time search bar, dietary tags (Vegan, Halal, Gluten-Free), and spice level badges.</li>
-  <li><strong>High-Resolution Photo Zoom:</strong> Interactive dish photo previews for biriyanis, porottas, curries, and dosas.</li>
-  <li><strong>Slide-Out Shopping Cart:</strong> Real-time price breakdown with automatic free delivery progress indicator (£35+ threshold).</li>
-  <li><strong>Guest Checkout & Customer Accounts:</strong> Instant ordering as a guest or permanent registration with verified UK mobile numbers and saved delivery addresses.</li>
-  <li><strong>UK Geolocation & Postcode Engine:</strong> One-tap GPS location extraction and strict UK postcode formatting (Manchester M-postcodes and nationwide).</li>
-  <li><strong>Fulfillment Mode Selection:</strong> Seamless toggle between Home Delivery and Counter Collection.</li>
-  <li><strong>Payment Interface Simulation:</strong> Interactive card preview with instant simulated authorization and Cash on Handover.</li>
-  <li><strong>4-Digit Security Handover PIN:</strong> Unique code generated per order to eliminate wrong handovers and lost deliveries.</li>
-  <li><strong>Live Journey Tracker (<code>/order/[id]/track</code>):</strong> Live progress bar showing status updates in real time with a one-tap <strong>"Call Courier"</strong> button.</li>
-  <li><strong>Active Order Sticky Banner:</strong> Persistent alert banner on the header ensuring customers never lose track of active meals.</li>
-</ul>
-
-<h3>🛎️ Admin & Hotel Management Module</h3>
-<ul class="feature-list">
-  <li><strong>Secret Triple-Click Gateway:</strong> Discreet hotel portal entry secured by credentials: ID <code>rs707</code> / Password <code>robin@77</code>.</li>
-  <li><strong>Live Kanban Order Pipeline:</strong> Instant tabs for <em>All, Pending Action, Currently Cooking (Preparing), Ready / Out for Delivery, Completed, and Cancelled/Failed</em>.</li>
-  <li><strong>⚡ Currently Working Div Highlighting:</strong> Dynamic glowing borders for active cooking (amber), delivery transit (blue), and incoming tickets (emerald).</li>
-  <li><strong>Manual Prep Time Adjustment:</strong> Adjust cooking prep time (15–35 mins) upon acceptance with live customer synchronization.</li>
-  <li><strong>Courier / Driver Assignment:</strong> Assign drivers with name, phone, scooter model, and delivery minutes displayed directly on the customer tracker.</li>
-  <li><strong>4-Digit PIN Handover Verification:</strong> Counter staff or drivers verify customer PINs directly before closing tickets.</li>
-  <li><strong>One-Tap WhatsApp & SMS Dispatch Docket:</strong> Formatted delivery slips with customer details, order items, GPS coordinates, and Google Maps direct links.</li>
-  <li><strong>Menu CRUD Management:</strong> Real-time addition, editing, price adjustments, photo uploads, and availability toggling.</li>
-  <li><strong>Smart Date Filtering & 7-Day Auto-Clear:</strong> Default view is <strong>Today's Orders</strong> with toggles for <em>Previous Orders, Last 7 Days, and All History</em>. Features a one-click <strong>Auto-Clear</strong> for old cancelled tickets.</li>
-  <li><strong>Audio Chimes:</strong> Synthesized audio chime alerts kitchen staff automatically when new orders arrive.</li>
-</ul>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 3: TECHNOLOGIES USED                                   -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2><span class="num">03</span> Technologies & Modern Stack Architecture</h2>
-<p>
-  The application is built using an enterprise-grade, modern JavaScript/TypeScript stack:
-</p>
-
-<div class="tech-grid">
-  <div class="tech-item">
-    <strong>Next.js 14 (App Router)</strong>
-    <span>Server-Side Rendering (SSR), React Server Components, and optimized static page generation.</span>
-  </div>
-  <div class="tech-item">
-    <strong>TypeScript 5</strong>
-    <span>Full-stack type safety across all database models, API payloads, and UI components.</span>
-  </div>
-  <div class="tech-item">
-    <strong>Tailwind CSS & Lucide Icons</strong>
-    <span>Mobile-first utility styling, custom typography, smooth micro-interactions, and vector icon sets.</span>
-  </div>
-  <div class="tech-item">
-    <strong>Node.js & Express.js</strong>
-    <span>High-throughput RESTful backend API handling orders, menus, users, and admin dispatching.</span>
-  </div>
-  <div class="tech-item">
-    <strong>Socket.IO (WebSockets)</strong>
-    <span>Persistent bidirectional communication engine for real-time order updates, timers, and chimes.</span>
-  </div>
-  <div class="tech-item">
-    <strong>React Hook Form & Zod</strong>
-    <span>Strict client-side and server-side schema validation for UK phone numbers, postcodes, and addresses.</span>
-  </div>
-  <div class="tech-item">
-    <strong>Zustand State Management</strong>
-    <span>Lightweight, persistent cart and session state management with zero layout re-renders.</span>
-  </div>
-  <div class="tech-item">
-    <strong>Payment SDK Architecture</strong>
-    <span>Modular architecture supporting Stripe Elements, PayPal JavaScript SDK, Square, and GoCardless.</span>
-  </div>
-</div>
-
-<div class="page-break"></div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 4: HOSTING & DOMAIN CONFIGURATION                      -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2><span class="num">04</span> Hosting Infrastructure & UK Domain Setup</h2>
-
-<div class="callout-box info">
-  <h4>🌐 Distributed Production Infrastructure</h4>
-  <p style="margin: 0; font-size: 9.5pt; color: #1e3a8a;">
-    To support both instant global page loading and persistent 24/7 WebSockets for real-time driver tracking, the platform utilizes a specialized two-tier architecture.
-  </p>
-</div>
-
-<ul class="feature-list">
-  <li><strong>Frontend Hosting (Netlify Global Edge):</strong>
-    Hosted at <code>rs-kerala-cafe.netlify.app</code>. Deployed across a worldwide multi-cloud CDN for sub-second load times, automatic SSL/TLS certificate provisioning, and automated continuous deployment from GitHub.
-  </li>
-  <li><strong>Backend API & WebSocket Server (Render.com):</strong>
-    Hosted at <code>rs-kerala-cafe.onrender.com</code>. Runs a persistent Node.js environment in the European region (Frankfurt/London) to ensure low latency and maintain persistent WebSocket connections for live kitchen audio alerts and courier transit updates.
-  </li>
-  <li><strong>Custom UK Domain Setup (e.g., <code>rskeralacafe.co.uk</code> or <code>.com</code>):</strong>
-    A custom UK domain can be pointed to the platform in 5 minutes by adding two DNS records at any registrar (Namecheap, GoDaddy, Cloudflare):
-    <br><br>
-    <strong>• A-Record:</strong> Host <code>@</code> pointing to Netlify IP: <code>75.2.60.5</code><br>
-    <strong>• CNAME Record:</strong> Host <code>www</code> pointing to: <code>rs-kerala-cafe.netlify.app</code><br>
-    Netlify automatically issues a free, auto-renewing Let's Encrypt SSL certificate (HTTPS padlock) within 15 minutes.
-  </li>
-</ul>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 5: DEMO MODE VS. MAIN PRODUCTION PROJECT               -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2><span class="num">05</span> Demo Mode vs. Main Production Project</h2>
-<p>
-  The demo is a fully functional simulation designed to showcase the platform without needing live merchant accounts or SMS billing. Here is how it translates to the live production setup:
+  Running an independent digital ordering system requires surprisingly low ongoing technical overhead compared to conventional restaurant software:
 </p>
 
 <table>
   <thead>
     <tr>
-      <th>Feature</th>
-      <th>Demo Implementation</th>
-      <th>Main Production Release</th>
+      <th>Component</th>
+      <th>Provider</th>
+      <th>Operational Role</th>
+      <th>Monthly / Annual Cost</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Payment Processing</strong></td>
-      <td><span class="badge demo">Simulation Mode</span> Instant test card authorization & Cash on Handover</td>
-      <td><span class="badge prod">Live Stripe & Apple Pay</span> Direct payouts to restaurant bank account (Visa, Mastercard, Amex, Apple Pay, Google Pay)</td>
+      <td><strong>Custom UK Domain</strong></td>
+      <td>Namecheap / GoDaddy / Cloudflare</td>
+      <td><code>rskeralacafe.co.uk</code> web address</td>
+      <td><strong>£6 – £9 / year</strong></td>
     </tr>
     <tr>
-      <td><strong>Customer SMS Alerts</strong></td>
-      <td><span class="badge demo">Screen Notifications</span> Live tracking screen updates & in-app alerts</td>
-      <td><span class="badge prod">Twilio / AWS SNS</span> Automated SMS dispatched directly to customer UK phone numbers upon status changes</td>
+      <td><strong>Frontend Edge Hosting</strong></td>
+      <td>Netlify Global Edge CDN</td>
+      <td>Storefront, shopping cart, customer accounts, and admin portal</td>
+      <td><strong>£0 / month</strong> (Included in free tier: 100GB bandwidth)</td>
     </tr>
     <tr>
-      <td><strong>Email Confirmations</strong></td>
-      <td><span class="badge demo">Verified Templates</span> Preview formatted email ticket stream</td>
-      <td><span class="badge prod">SendGrid / Postmark</span> Automated branded VAT receipts and invoices emailed directly to customer inboxes</td>
+      <td><strong>Backend API & WebSockets</strong></td>
+      <td>Render.com / Railway Cloud</td>
+      <td>Express REST API & 24/7 persistent Socket.IO engine for kitchen alerts</td>
+      <td><strong>£0 – £5 / month</strong> (£5/mo on Starter keeps server awake 24/7)</td>
     </tr>
     <tr>
-      <td><strong>Database Layer</strong></td>
-      <td><span class="badge demo">Zero-Config Memory Engine</span> 10 seeded Kerala Cafe orders with instant reset button</td>
-      <td><span class="badge prod">MongoDB Atlas Cloud</span> Distributed, automated daily backups with multi-year order history retention</td>
+      <td><strong>Database Cluster</strong></td>
+      <td>MongoDB Atlas Cloud</td>
+      <td>Cloud database for orders, customer addresses, menus, and coupons</td>
+      <td><strong>£0 / month</strong> (Free permanent 512MB M0 cluster)</td>
     </tr>
     <tr>
-      <td><strong>Domain & Branding</strong></td>
-      <td><span class="badge demo">Netlify Subdomain</span> <code>rs-kerala-cafe.netlify.app</code></td>
-      <td><span class="badge prod">Custom UK Domain</span> <code>rskeralacafe.co.uk</code> with Cloudflare enterprise SSL protection</td>
+      <td><strong>SSL Encryption (HTTPS)</strong></td>
+      <td>Netlify & Let's Encrypt</td>
+      <td>Bank-grade security and green padlock for checkout safety</td>
+      <td><strong>£0 / month</strong> (Included free forever)</td>
+    </tr>
+    <tr>
+      <td><strong>Payment Gateway</strong></td>
+      <td>Stripe UK</td>
+      <td>Direct payouts to UK business bank account</td>
+      <td><strong>£0 Monthly Fee</strong> (Only ~1.5% + 20p per successful order)</td>
+    </tr>
+    <tr>
+      <td><strong>TOTAL RUNNING COST</strong></td>
+      <td colspan="2"><strong>Complete Technology Stack</strong></td>
+      <td><strong>~£10 – £15 / month</strong></td>
     </tr>
   </tbody>
 </table>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 6: FUTURE EXPANSION ROADMAP                            -->
+<!-- SECTION 2: HOW IT ACTUALLY WORKS                               -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<h2><span class="num">06</span> Future Expansion Roadmap (Phases 2 & 3)</h2>
+<h2><span class="num">02</span> How the System Actually Works (End-to-End Flow)</h2>
 <p>
-  Architected to support future revenue streams and restaurant operational upgrades:
+  The platform connects customers, kitchen expeditors, delivery drivers, and bank accounts in a synchronized, real-time workflow:
+</p>
+
+<div class="step-card">
+  <h4>1. Customer Orders on Phone or Laptop</h4>
+  <p>Customer visits <code>rskeralacafe.co.uk</code>. Selects items (e.g., Malabar Dum Biriyani & Porotta), chooses Home Delivery or Collection, enters UK postcode, and selects Card, Apple Pay, Google Pay, or Cash on Handover.</p>
+</div>
+
+<div class="step-card">
+  <h4>2. Payment Authorization & PIN Generation</h4>
+  <p>Payment is securely processed by Stripe UK. An automated <strong>4-Digit Security PIN</strong> (e.g. <code>4821</code>) is issued to the customer to eliminate wrong handovers.</p>
+</div>
+
+<div class="step-card">
+  <h4>3. Instant Kitchen Chime & Audio Alert</h4>
+  <p>Inside the restaurant kitchen, the management tablet sounds an audio chime. The new order ticket flashes emerald green. Kitchen staff clicks <strong>"Accept — 20 mins"</strong>. The countdown timer instantly syncs to the customer's phone in real time.</p>
+</div>
+
+<div class="step-card">
+  <h4>4. WhatsApp Driver Dispatch Docket</h4>
+  <p>Kitchen clicks <strong>"Assign Driver"</strong> and selects courier name, vehicle, and delivery ETA. The manager clicks <strong>"Copy Docket"</strong> to paste a formatted slip directly into WhatsApp for the driver (including direct Google Maps navigation link and customer phone number).</p>
+</div>
+
+<div class="step-card">
+  <h4>5. Doorstep Handover & Settlement</h4>
+  <p>The driver arrives, verifies the customer's 4-digit PIN, and hands over the meal. The funds from the order are automatically scheduled for direct deposit into the restaurant's UK bank account.</p>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3: UK PAYMENT GATEWAY & BANK ACCOUNT SETUP             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2><span class="num">03</span> UK Payment Gateway & Bank Account Integration</h2>
+<p>
+  All digital transactions are processed through <strong>Stripe UK</strong>, the regulated payment infrastructure powering Deliveroo, Uber, and Amazon UK.
+</p>
+
+<div class="callout-box">
+  <h4>🔒 Direct Payouts: Zero Developer Intermediary</h4>
+  <p style="margin: 0; font-size: 9pt; color: #065f46;">
+    Customer payments flow directly from their debit/credit card or Apple Pay straight into the <strong>restaurant manager's UK business bank account</strong>. Developers never hold, touch, or process customer funds.
+  </p>
+</div>
+
+<h3>How the Restaurant Manager Connects Their Bank Account (10-Minute Setup)</h3>
+<ul class="feature-list">
+  <li><strong>Step 1: Create a Free Stripe UK Account:</strong> The restaurant manager or owner signs up at <a href="https://stripe.com">Stripe.com</a>.</li>
+  <li><strong>Step 2: Enter UK Business Bank Details:</strong>
+    <br>• <strong>Sort Code</strong> (6 digits, e.g., <code>20-00-00</code>)
+    <br>• <strong>Account Number</strong> (8 digits, e.g., <code>12345678</code>)
+    <br>• Business Entity Name (e.g., <em>RS Kerala Cafe Ltd</em>)
+  </li>
+  <li><strong>Step 3: Copy Two Secret API Keys:</strong> From the Stripe dashboard, copy the <em>Publishable Key</em> (<code>pk_live_...</code>) and <em>Secret Key</em> (<code>sk_live_...</code>).</li>
+  <li><strong>Step 4: Paste into Backend Settings:</strong> Paste the keys into the backend environment configuration. The website immediately accepts live card and mobile wallet payments.</li>
+</ul>
+
+<h3>Supported Customer Payment Methods</h3>
+<ul class="feature-list">
+  <li><strong>UK Debit & Credit Cards:</strong> Visa, Mastercard, American Express, Maestro, Monzo, Revolut, Barclays, HSBC, Lloyds, NatWest.</li>
+  <li><strong>Apple Pay:</strong> 1-tap fingerprint / FaceID checkout on iPhones, iPads, and Mac computers.</li>
+  <li><strong>Google Pay:</strong> 1-tap checkout on Android devices and Chrome browsers.</li>
+  <li><strong>Cash on Handover / Collection:</strong> Customers paying cash at the counter or doorstep. The admin console flags these tickets with a bold amber badge: <em>"💵 CASH ON HANDOVER — COLLECT £XX.XX"</em>.</li>
+</ul>
+
+<h3>Commission Comparison vs. Aggregators (JustEat & Deliveroo)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Third-Party Apps (JustEat / Deliveroo)</th>
+      <th>RS Kerala Café Direct Platform</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Commission Percentage</strong></td>
+      <td><strong>25% to 35% on every meal</strong></td>
+      <td><strong>0% Commission</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Card Processing Fee</strong></td>
+      <td>Deducted as part of commission</td>
+      <td>Standard Stripe rate: <strong>~1.5% + 20p</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Customer Ownership</strong></td>
+      <td>Aggregator keeps customer database</td>
+      <td><strong>Restaurant owns 100% of customer data</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Monthly Payout on £10,000 Sales</strong></td>
+      <td>Restaurant receives only £6,500 – £7,500</td>
+      <td>Restaurant receives <strong>£9,800+</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4: DOMAIN REGISTRATION & HOSTING                       -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2><span class="num">04</span> Domain Registration & Deployment Details</h2>
+
+<div class="callout-box info">
+  <h4>🌐 Custom UK Domain Configuration (5 Minutes)</h4>
+  <p style="margin: 0; font-size: 9pt; color: #1e3a8a;">
+    To launch with a custom branded UK web address (e.g. <code>rskeralacafe.co.uk</code>), purchase the domain on Namecheap or GoDaddy for £6–£9/year and set two DNS records:
+  </p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>DNS Record Type</th>
+      <th>Host / Name</th>
+      <th>Value / Points To</th>
+      <th>TTL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>A Record</strong></td>
+      <td><code>@</code> (root)</td>
+      <td><code>75.2.60.5</code> (Netlify Edge IP)</td>
+      <td>Auto / 3600</td>
+    </tr>
+    <tr>
+      <td><strong>CNAME Record</strong></td>
+      <td><code>www</code></td>
+      <td><code>rs-kerala-cafe.netlify.app</code></td>
+      <td>Auto / 3600</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5: FUTURE EXPANSION ROADMAP                            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2><span class="num">05</span> Future Expansion Roadmap (Phases 2 & 3)</h2>
+<p>
+  The architecture is prepared for rapid operational upgrades without re-engineering the core code:
 </p>
 
 <ul class="feature-list">
   <li><strong>1. Thermal POS Kitchen Receipt Printer Integration:</strong> Direct ESC/POS Bluetooth and network thermal printer support (Epson/Star Micronics) to automatically print kitchen dockets the moment an order is confirmed.</li>
-  <li><strong>2. Table Dine-In QR Code Ordering:</strong> QR codes placed on dining tables allowing seated guests to browse the menu, order, and pay directly from their phones to their table number.</li>
+  <li><strong>2. Table Dine-In QR Code Ordering:</strong> Table-mounted QR codes allowing seated guests to browse the menu, order, and pay directly from their phone inside the restaurant.</li>
   <li><strong>3. Customer Loyalty & Rewards Points:</strong> Earn points on every order (e.g. 1 point per £1 spent), redeemable for discounts, free porottas, or biriyani upgrades to drive retention.</li>
   <li><strong>4. Staff Delivery Driver Mobile App (PWA):</strong> Dedicated mobile interface for restaurant couriers with GPS turn-by-turn Google Maps navigation, customer phone dialer, and digital signature capture.</li>
   <li><strong>5. Multi-Branch Restaurant Hub:</strong> Central management console for restaurants expanding into multiple locations (e.g. Manchester Northenden, Didsbury, Birmingham) with separate kitchen consoles.</li>
