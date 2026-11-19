@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RS Kerala Cafe - Complete Platform Specification & Client Handover Document</title>
+<style>
+  @page {
+    size: A4;
+    margin: 20mm 18mm 20mm 18mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.55;
+    font-size: 11pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cover Page */
+  .cover {
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90vh;
+    padding: 20px 0;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: #ecfdf5;
+    border: 1px solid #10b981;
+    color: #047857;
+    font-weight: 700;
+    font-size: 9pt;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+
+  .cover h1 {
+    font-size: 32pt;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.15;
+    margin: 0 0 12px 0;
+  }
+
+  .cover h1 span {
+    color: #059669;
+  }
+
+  .cover-subtitle {
+    font-size: 14pt;
+    color: #475569;
+    margin-bottom: 36px;
+    max-width: 600px;
+    font-weight: 400;
+  }
+
+  .meta-box {
+    background: #f8fafc;
+    border-left: 4px solid #059669;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 30px;
+    font-size: 10pt;
+  }
+
+  .meta-row {
+    display: flex;
+    margin-bottom: 6px;
+  }
+
+  .meta-label {
+    font-weight: 700;
+    width: 140px;
+    color: #64748b;
+  }
+
+  .meta-value {
+    color: #0f172a;
+    font-weight: 500;
+  }
+
+  .meta-value a {
+    color: #059669;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  /* Headings */
+  h2 {
+    font-size: 18pt;
+    font-weight: 800;
+    color: #0f172a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+    margin-top: 36px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h2 span.num {
+    background: #059669;
+    color: #ffffff;
+    font-size: 11pt;
+    padding: 2px 9px;
+    border-radius: 6px;
+    font-weight: 800;
+  }
+
+  h3 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 22px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  /* Point-based lists */
+  ul.feature-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+
+  ul.feature-list > li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 10px;
+    font-size: 10.5pt;
+  }
+
+  ul.feature-list > li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #059669;
+    font-weight: 900;
+    font-size: 11pt;
+  }
+
+  ul.feature-list > li strong {
+    color: #0f172a;
+  }
+
+  /* Comparison Cards / Callouts */
+  .callout-box {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+
+  .callout-box.warn {
+    background: #fffbeb;
+    border-color: #fde68a;
+  }
+
+  .callout-box h4 {
+    margin: 0 0 8px 0;
+    font-size: 11pt;
+    font-weight: 700;
+    color: #065f46;
+  }
+
+  .callout-box.warn h4 {
+    color: #92400e;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 9.5pt;
+  }
+
+  th, td {
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 8.5pt;
+    letter-spacing: 0.05em;
+  }
+
+  tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .badge.demo {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+  }
+
+  .badge.prod {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- COVER PAGE                                                    -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-badge">Official Client Handover & Project Specification</div>
+  <h1>RS Kerala Café<br><span>Food Ordering & Hotel Management Platform</span></h1>
+  <div class="cover-subtitle">
+    Complete architectural walkthrough, customer module, hotel admin portal specifications, payment gateway integration, and future expansion roadmap.
+  </div>
+
+  <div class="meta-box">
+    <div class="meta-row"><div class="meta-label">Live Storefront:</div><div class="meta-value"><a href="https://rs-kerala-cafe.netlify.app/">https://rs-kerala-cafe.netlify.app/</a></div></div>
+    <div class="meta-row"><div class="meta-label">Backend Engine:</div><div class="meta-value"><a href="https://rs-kerala-cafe.onrender.com">https://rs-kerala-cafe.onrender.com</a></div></div>
+    <div class="meta-row"><div class="meta-label">Admin Console:</div><div class="meta-value">Route: <code>/admin</code> (or triple-click the logo) | ID: <code>rs707</code></div></div>
+    <div class="meta-row"><div class="meta-label">Source Code:</div><div class="meta-value"><a href="https://github.com/BILIN7/rs-kerala-cafe">github.com/BILIN7/rs-kerala-cafe</a></div></div>
+    <div class="meta-row"><div class="meta-label">Prepared For:</div><div class="meta-value">Client Demo & Commercial Deployment</div></div>
+    <div class="meta-row"><div class="meta-label">Date of Release:</div><div class="meta-value">November 2026</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1: EXECUTIVE SUMMARY                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2><span class="num">01</span> Executive Overview & Business Value</h2>
+<p>
+  <strong>RS Kerala Café</strong> is an end-to-end, high-performance digital food ordering and kitchen dispatch platform designed specifically for authentic South Indian & Malabar culinary operations in Greater Manchester and across the UK.
+</p>
+
+<div class="callout-box">
+  <h4>💰 Commercial Advantage vs. JustEat, Deliveroo, and UberEats</h4>
+  <p style="margin: 0; font-size: 10pt; color: #166534;">
+    Third-party delivery apps deduct <strong>25% to 35% commission</strong> from every order. On a monthly turnover of £10,000, that is £2,500 to £3,500 lost in commission fees. RS Kerala Café is 100% direct-to-consumer with <strong>0% commission</strong>, allowing the restaurant to retain full profits while building a loyal direct customer database.
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2: CUSTOMER MODULE BREAKDOWN                           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2><span class="num">02</span> Customer Module Breakdown (Storefront)</h2>
+<p>
+  The customer-facing application is built on Next.js 14 and Tailwind CSS with a mobile-first responsive architecture.
+</p>
+
+<ul class="feature-list">
+  <li><strong>Bespoke Brand Identity & Custom SVG Logo:</strong> Handcrafted vector emblem incorporating traditional Kerala Nilavilakku brass lamp flame, coconut palm frond, aromatic culinary steam, and monogram branding ("RS").</li>
+  <li><strong>Dynamic Authentic Kerala Menu:</strong> Filter dishes by categories (<em>Biriyani, Kerala Specialities, Dosa & Starters, Vegetarian, Breads & Accompaniments, Drinks & Desserts</em>) with real-time text search and spice level indicators.</li>
+  <li><strong>Interactive Dish Photo Previews:</strong> High-resolution curated imagery for authentic Malabar Biriyanis, Porottas, Beef Ularthiyathu, and Fish Curries with full-screen zoom previews.</li>
+  <li><strong>Persistent Slide-Out Cart:</strong> Slide-out drawer displaying item quantities, price modifiers, real-time subtotal calculations, and free delivery progress indicators (£35+ threshold).</li>
+  <li><strong>Flexible Guest Checkout & User Accounts:</strong> Customers can order in seconds as a guest or create a permanent account with verified UK phone numbers and saved delivery addresses.</li>
+  <li><strong>UK Address & Postcode Auto-Detection:</strong> Integrated GPS geolocation extractor and UK postal code validator (covering Manchester M-postcodes and nationwide formats) with custom gate code and handover preference fields.</li>
+  <li><strong>Fulfillment Mode Selection:</strong> Seamless toggle between <strong>Home Delivery</strong> (with live courier transit) and <strong>Counter Collection</strong> (with 4-digit pickup code).</li>
+  <li><strong>Payment Simulation & Modern Card Interface:</strong> Realistic interactive credit card mockup (Visa/Mastercard) with instant test payment simulation and Cash on Handover support.</li>
+  <li><strong>4-Digit Secure Handover PIN:</strong> Every order generates a unique 4-digit verification code (e.g., <code>4821</code>) to prevent incorrect doorstep deliveries or mistaken counter handovers.</li>
+  <li><strong>Live Journey Order Tracker (<code>/order/[id]/track</code>):</strong> Real-time progress bar from Kitchen Acceptance → Cooking In Progress → Courier En Route → Delivered. Features a one-tap <strong>"Call Courier"</strong> dialer button.</li>
+  <li><strong>Global Active Order Banner:</strong> A persistent banner on the website header reminds customers of orders currently in progress with a direct link to live tracking.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3: ADMIN & HOTEL MANAGEMENT MODULE                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2><span class="num">03</span> Admin & Hotel Management Module</h2>
+<p>
+  Designed for kitchen expeditors, restaurant managers, and dispatch operators. Accessible at <code>/admin</code> or via the secret <strong>triple-click gesture</strong> on the navigation logo.
+</p>
+
+<div class="callout-box warn">
+  <h4>🔒 Confidential Access Credentials</h4>
+  <p style="margin: 0; font-size: 10pt; color: #78350f;">
+    Admin Portal Route: <strong>/admin</strong> &nbsp;|&nbsp; Admin ID: <strong>rs707</strong> &nbsp;|&nbsp; Password: <strong>robin@77</strong>
+  </p>
+</div>
+
+<ul class="feature-list">
+  <li><strong>Secret Triple-Click Gateway:</strong> Discreet hotel management entry without cluttered admin links in the public storefront.</li>
+  <li><strong>Live Kanban Order Pipeline:</strong> Real-time visual tabs: <em>All, Pending Action, Currently Cooking (Preparing), Ready / Out for Delivery, Completed, and Cancelled/Failed</em>.</li>
+  <li><strong>⚡ "Currently Working" Div Highlighting:</strong> Active kitchen orders are visually highlighted with glowing amber borders (<em>"🔥 CURRENTLY COOKING IN KITCHEN"</em>), live delivery orders with blue borders (<em>"🛵 CURRENTLY ON DELIVERY ROUTE"</em>), and new incoming tickets with emerald pulses.</li>
+  <li><strong>Customizable Cooking Prep Time:</strong> Kitchen operators adjust estimated prep time (15, 20, 25, 35 mins) upon accepting an order. Real-time countdown timers synchronize automatically on the customer's tracking screen.</li>
+  <li><strong>Courier / Driver Assignment:</strong> Assign delivery drivers with driver name, phone number, vehicle details (e.g., <em>Honda PCX 125 Scooter</em>), and estimated arrival minutes. Details instantly appear on the customer's phone.</li>
+  <li><strong>4-Digit PIN Handover Verification:</strong> Counter staff or drivers verify customer PINs directly in the console before closing tickets, guaranteeing 100% handover accuracy.</li>
+  <li><strong>One-Tap WhatsApp & SMS Dispatch Docket:</strong> Generates formatted delivery slips including customer name, phone, full address, GPS coordinates, gate codes, order items, and Google Maps direct links for immediate driver dispatch.</li>
+  <li><strong>Interactive Hotel Menu CRUD Management:</strong> Add new menu items, update prices, toggle availability in real-time, upload photos, set dietary tags (Vegan, Halal, Spicy), and delete outdated dishes on the fly.</li>
+  <li><strong>Smart Date Filtering & 7-Day Auto-Clear:</strong> Default view is <strong>Today's Orders</strong> with instant toggles for <em>Previous Orders, Last 7 Days, and All History</em>. Features a one-click <strong>Auto-Clear</strong> to purge rejected tickets older than 7 days.</li>
+  <li><strong>Kitchen Chime Audio Alerts:</strong> Synthesized audio chime rings automatically when new orders arrive, alerting kitchen staff even when working in another tab.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4: DEMO MODE VS. MAIN PROJECT PRODUCTION               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2><span class="num">04</span> Demo Mode vs. Main Production Project</h2>
+<p>
+  The current demonstration uses active simulation engines for immediate client presentations without requiring production merchant agreements. Here is the seamless path to live commercial operation:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>System Component</th>
+      <th>Demo Implementation</th>
+      <th>Main Production Release</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Payment Gateway</strong></td>
+      <td><span class="badge demo">Simulation Mode</span> Instant card authorization & cash on handover</td>
+      <td><span class="badge prod">Live Stripe & Apple Pay</span> Direct payouts to restaurant bank account (Visa, Mastercard, Amex, Apple Pay, Google Pay)</td>
+    </tr>
+    <tr>
+      <td><strong>Customer SMS Alerts</strong></td>
+      <td><span class="badge demo">Screen Notification</span> Toast messages & live tracking web hooks</td>
+      <td><span class="badge prod">Twilio / AWS SNS</span> Automated SMS dispatched directly to customer UK phone numbers upon status updates</td>
+    </tr>
+    <tr>
+      <td><strong>Transactional Emails</strong></td>
+      <td><span class="badge demo">Console Stream</span> Verified HTML email template preview</td>
+      <td><span class="badge prod">SendGrid / Postmark</span> Automated branded VAT invoices and order receipts emailed to customer inboxes</td>
+    </tr>
+    <tr>
+      <td><strong>Database Layer</strong></td>
+      <td><span class="badge demo">Zero-Config Memory Engine</span> 10 seeded Kerala Cafe orders with instant reset</td>
+      <td><span class="badge prod">MongoDB Atlas Cloud</span> Distributed, automated daily backups with multi-year order history retention</td>
+    </tr>
+    <tr>
+      <td><strong>Web Domain</strong></td>
+      <td><span class="badge demo">Netlify Subdomain</span> <code>rs-kerala-cafe.netlify.app</code></td>
+      <td><span class="badge prod">Custom UK Domain</span> <code>rskeralacafe.co.uk</code> with Cloudflare enterprise SSL protection</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5: FUTURE EXPANSION ROADMAP                            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2><span class="num">05</span> Future Expansion Roadmap (Phase 2 & 3)</h2>
+<p>
+  Designed to scale with the restaurant's operational growth:
+</p>
+
+<ul class="feature-list">
+  <li><strong>1. Thermal POS Kitchen Receipt Printer Integration:</strong> Direct ESC/POS Bluetooth and network thermal printer support (Epson/Star Micronics) to automatically print kitchen tickets the instant an order is placed.</li>
+  <li><strong>2. Customer Loyalty & Rewards Engine:</strong> Earn 1 point per £1 spent. Points unlock free Kerala Porottas, Biriyani upgrades, and birthday discounts to drive customer retention.</li>
+  <li><strong>3. Table Dine-In QR Code Ordering:</strong> QR codes placed on restaurant dining tables allow patrons to order and pay from their phones directly to their table number.</li>
+  <li><strong>4. Dedicated Delivery Driver Mobile App (PWA):</strong> Progressive web application for staff delivery drivers featuring real-time turn-by-turn Google Maps navigation and digital customer signature captures.</li>
+  <li><strong>5. Multi-Branch Restaurant Hub:</strong> Central management for restaurants expanding into multiple locations (e.g. Manchester Northenden, Didsbury, Birmingham) with separate kitchen consoles.</li>
+  <li><strong>6. AI Inventory & Predictive Stock Forecasts:</strong> Automatic warnings when biryani meat or spice inventory runs low based on sales velocity.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 6: CLIENT PRICING & HANDOVER STRATEGY                 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2><span class="num">06</span> Commercial Pricing & Client Proposal</h2>
+<p>
+  When presenting the final proposal to your restaurant client, the following market-aligned fee structure is recommended:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service Tier</th>
+      <th>Deliverables Included</th>
+      <th>Recommended Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Core System Package</strong></td>
+      <td>Complete custom RS Kerala Cafe storefront, mobile responsive UI, menu catalog, shopping cart, UK postcode checkout, 4-digit PIN verification, live order tracking, and full admin management console.</td>
+      <td><strong>£1,500 – £2,200</strong><br><span style="color:#64748b; font-size:8pt;">One-time setup fee</span></td>
+    </tr>
+    <tr>
+      <td><strong>Full Production Deployment</strong></td>
+      <td>Live Stripe payment gateway integration, Twilio UK SMS alerts, SendGrid automated email receipts, custom <code>.co.uk</code> domain registration, and SSL certificates.</td>
+      <td><strong>£400 – £600</strong><br><span style="color:#64748b; font-size:8pt;">Integration fee</span></td>
+    </tr>
+    <tr>
+      <td><strong>Monthly Care & Maintenance</strong></td>
+      <td>24/7 cloud server hosting, database backups, uptime monitoring, security updates, menu item updates, and technical support.</td>
+      <td><strong>£59 – £99 / month</strong><br><span style="color:#64748b; font-size:8pt;">Recurring retainer</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout-box" style="margin-top: 24px;">
+  <h4>📌 Handover Pitch Summary</h4>
+  <p style="margin: 0; font-size: 9.5pt; color: #166534;">
+    "This complete custom platform gives you the same technology standard as global delivery apps, but with <strong>zero commission fees</strong>, immediate bank payouts, and direct control over your customers. By saving 30% in commission on every meal, the system pays for itself in just a few weeks."
+  </p>
+</div>
+
+</body>
+</html>
