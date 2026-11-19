@@ -5,6 +5,8 @@
 [build.environment]
   NODE_VERSION = "20"
   NPM_FLAGS = "--legacy-peer-deps"
+  NEXT_PUBLIC_API_URL = "https://rs-kerala-cafe.onrender.com/api"
+  NEXT_PUBLIC_SOCKET_URL = "https://rs-kerala-cafe.onrender.com"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
